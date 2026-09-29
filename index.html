@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مصر الرقمية | رحلة نحو المستقبل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="particles"></div>
+
+    <button id="soundButton" class="sound-btn" onclick="testClickSound()">🔊</button>
+
+    <!-- الصفحة الرئيسية -->
+    <section id="home" class="page home-page active">
+        <div class="home-content">
+            <div class="egypt-symbol">🇪🇬</div>
+            <p class="small-title">رحلة تفاعلية في إنجازات مصر</p>
+            <h1>مصر الرقمية</h1>
+            <h2>نحو مستقبل أكثر تطورًا</h2>
+            <p class="intro">
+                اكتشف كيف تستخدم مصر التكنولوجيا والابتكار
+                لتطوير التعليم والصحة والصناعة،
+                وخوض رحلة تفاعلية بين أهم مجالات التحول الرقمي.
+            </p>
+            <button class="main-button" onclick="startJourney()">🚀 ابدأ الرحلة</button>
+        </div>
+
+        <div class="student-credit">
+            إعداد الطالبة <strong>خلود خالد</strong><br>
+            مدرسة الثانوية الجديدة بنات
+        </div>
+    </section>
+
+    <!-- الخريطة -->
+    <section id="map" class="page">
+        <div class="page-header">
+            <span class="chapter">🇪🇬 مصر الرقمية</span>
+            <h1>اختر رحلتك</h1>
+            <p>اختر مجالًا واكتشف كيف دخلت التكنولوجيا في تطويره.</p>
+        </div>
+
+        <div class="worlds">
+            <button class="world education-world" onclick="openWorld('education')">
+                <div class="world-icon">🎓</div>
+                <div class="world-info">
+                    <span>العالم الأول</span>
+                    <h2>التعليم</h2>
+                    <p>المنصات التعليمية، بنك المعرفة، البرمجة والذكاء الاصطناعي.</p>
+                </div>
+                <div class="world-arrow">←</div>
+            </button>
+
+            <button class="world health-world" onclick="openWorld('health')">
+                <div class="world-icon">🏥</div>
+                <div class="world-info">
+                    <span>العالم الثاني</span>
+                    <h2>الصحة</h2>
+                    <p>الخدمات الصحية الرقمية، البيانات والذكاء الاصطناعي.</p>
+                </div>
+                <div class="world-arrow">←</div>
+            </button>
+
+            <button class="world industry-world" onclick="openWorld('industry')">
+                <div class="world-icon">🏭</div>
+                <div class="world-info">
+                    <span>العالم الثالث</span>
+                    <h2>الصناعة</h2>
+                    <p>الإلكترونيات، إنترنت الأشياء والصناعة الذكية.</p>
+                </div>
+                <div class="world-arrow">←</div>
+            </button>
+
+            <!-- الفيديو -->
+            <button class="world video-world" onclick="openVideo()">
+                <div class="world-icon">🎬</div>
+                <div class="world-info">
+                    <span>رحلة إضافية</span>
+                    <h2>اتفرج على إنجازات بلدك</h2>
+                    <p>شاهد فيديو قصير عن بعض إنجازات مصر.</p>
+                </div>
+                <div class="world-arrow">←</div>
+            </button>
+        </div>
+
+        <div id="videoBox" class="video-box">
+            <div class="video-title">🇪🇬 اتفرج على إنجازات بلدك</div>
+            <video id="achievementVideo" controls preload="metadata" playsinline>
+                <source src="video.mp4" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+        </div>
+
+        <div style="text-align:center">
+            <button class="quiz-button" onclick="startQuiz()">🧠 اختبر معلوماتك</button>
+        </div>
+    </section>
+
+    <!-- التعليم -->
+    <section id="education" class="page education-page">
+        <button class="back-button" onclick="showPage('map')">→ العودة</button>
+        <div class="world-top">
+            <div class="big-world-icon">🎓</div>
+            <div>
+                <span>العالم الأول</span>
+                <h1>التعليم الرقمي</h1>
+            </div>
+        </div>
+
+        <div class="world-intro">
+            <div class="intro-icon">💻</div>
+            <div>
+                <h2>التكنولوجيا داخل التعليم</h2>
+                <p>لم يعد التعليم يعتمد على الكتاب المدرسي فقط، بل أصبحت المنصات والمصادر الرقمية والبرمجة والذكاء الاصطناعي جزءًا من رحلة التعلم.</p>
+            </div>
+        </div>
+
+        <div class="learning-levels">
+            <button class="level-card" onclick="openTopic('platforms')">
+                <span>🌐</span>
+                <div>
+                    <h3>المنصات التعليمية</h3>
+                    <p>المنصات والمصادر الرقمية</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openTopic('ekb')">
+                <span>📚</span>
+                <div>
+                    <h3>بنك المعرفة المصري</h3>
+                    <p>ماذا يوجد بداخله؟</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openTopic('programming')">
+                <span>👩‍💻</span>
+                <div>
+                    <h3>البرمجة والذكاء الاصطناعي</h3>
+                    <p>مهارات التكنولوجيا والمستقبل</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openTopic('digitalization')">
+                <span>📊</span>
+                <div>
+                    <h3>رقمنة التعليم</h3>
+                    <p>البيانات والخدمات والمحتوى الرقمي</p>
+                </div>
+                <b>←</b>
+            </button>
+        </div>
+    </section>
+
+    <!-- موضوع التعليم -->
+    <section id="topic" class="page topic-page">
+        <button class="back-button" onclick="showPage('education')">→ التعليم</button>
+        <div id="topicContent"></div>
+    </section>
+
+    <!-- الصحة -->
+    <section id="health" class="page health-page">
+        <button class="back-button" onclick="showPage('map')">→ العودة</button>
+        <div class="world-top">
+            <div class="big-world-icon">🏥</div>
+            <div>
+                <span>العالم الثاني</span>
+                <h1>الصحة الرقمية</h1>
+            </div>
+        </div>
+
+        <div class="world-intro">
+            <div class="intro-icon">❤️</div>
+            <div>
+                <h2>التكنولوجيا في خدمة الإنسان</h2>
+                <p>تساعد التكنولوجيا الحديثة في تطوير الخدمات الصحية وإدارة البيانات ودعم الأطباء والمرضى.</p>
+            </div>
+        </div>
+
+        <div class="learning-levels">
+            <button class="level-card" onclick="openHealthTopic('records')">
+                <span>📋</span>
+                <div>
+                    <h3>البيانات والسجلات الصحية</h3>
+                    <p>تنظيم المعلومات الصحية إلكترونيًا</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openHealthTopic('ai')">
+                <span>🤖</span>
+                <div>
+                    <h3>الذكاء الاصطناعي</h3>
+                    <p>تحليل الصور والبيانات الطبية</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openHealthTopic('telemedicine')">
+                <span>📡</span>
+                <div>
+                    <h3>الخدمات الصحية الرقمية</h3>
+                    <p>التكنولوجيا والتواصل عن بُعد</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openHealthTopic('data')">
+                <span>☁️</span>
+                <div>
+                    <h3>البيانات والتكنولوجيا</h3>
+                    <p>الأنظمة والبنية التكنولوجية</p>
+                </div>
+                <b>←</b>
+            </button>
+        </div>
+    </section>
+
+    <!-- موضوع الصحة -->
+    <section id="healthTopic" class="page topic-page">
+        <button class="back-button" onclick="showPage('health')">→ الصحة</button>
+        <div id="healthTopicContent"></div>
+    </section>
+
+    <!-- الصناعة -->
+    <section id="industry" class="page industry-page">
+        <button class="back-button" onclick="showPage('map')">→ العودة</button>
+        <div class="world-top">
+            <div class="big-world-icon">🏭</div>
+            <div>
+                <span>العالم الثالث</span>
+                <h1>الصناعة والتكنولوجيا</h1>
+            </div>
+        </div>
+
+        <div class="world-intro">
+            <div class="intro-icon">⚙️</div>
+            <div>
+                <h2>صناعة أكثر ذكاءً</h2>
+                <p>تدخل التكنولوجيا في التصنيع والإلكترونيات والأتمتة وإنترنت الأشياء والأنظمة الذكية.</p>
+            </div>
+        </div>
+
+        <div class="learning-levels">
+            <button class="level-card" onclick="openIndustryTopic('electronics')">
+                <span>🔌</span>
+                <div>
+                    <h3>الإلكترونيات</h3>
+                    <p>تصنيع وتطوير المنتجات الإلكترونية</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openIndustryTopic('chips')">
+                <span>💾</span>
+                <div>
+                    <h3>أشباه الموصلات</h3>
+                    <p>الشرائح والدوائر الإلكترونية</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openIndustryTopic('iot')">
+                <span>🌐</span>
+                <div>
+                    <h3>إنترنت الأشياء</h3>
+                    <p>أجهزة متصلة وبيانات ذكية</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openIndustryTopic('industry4')">
+                <span>🤖</span>
+                <div>
+                    <h3>الصناعة 4.0</h3>
+                    <p>الأتمتة والروبوتات والبيانات</p>
+                </div>
+                <b>←</b>
+            </button>
+
+            <button class="level-card" onclick="openIndustryTopic('innovation')">
+                <span>🚀</span>
+                <div>
+                    <h3>الابتكار التكنولوجي</h3>
+                    <p>من الفكرة إلى الحل الرقمي</p>
+                </div>
+                <b>←</b>
+            </button>
+        </div>
+    </section>
+
+    <!-- موضوع الصناعة -->
+    <section id="industryTopic" class="page topic-page">
+        <button class="back-button" onclick="showPage('industry')">→ الصناعة</button>
+        <div id="industryTopicContent"></div>
+    </section>
+
+    <!-- الاختبار -->
+    <section id="quiz" class="page quiz-page">
+        <button class="back-button" onclick="showPage('map')">→ العودة</button>
+        <div class="quiz-header">
+            <span>🧠 اختبر معلوماتك</span>
+            <h1>تحدي مصر الرقمية</h1>
+            <p>هل استطعت اكتشاف إنجازات مصر الرقمية؟</p>
+        </div>
+
+        <div id="quiz-box" class="quiz-box">
+            <div id="question-number"></div>
+            <h2 id="question"></h2>
+            <div id="answers"></div>
+            <div id="score">النقاط: 0</div>
+        </div>
+
+        <div id="quiz-result"></div>
+    </section>
+
+    <footer>
+        🇪🇬 <strong>مصر الرقمية</strong><br>
+        إعداد الطالبة <strong>خلود خالد</strong><br>
+        مدرسة الثانوية الجديدة بنات
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
